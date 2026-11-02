@@ -10,22 +10,19 @@ import '@fontsource-variable/jetbrains-mono';
 
 import './styles/theme.css';
 import './styles/slides.css';
+import './styles/deck-ui.css';
 
-const deck = new Reveal(document.querySelector('.reveal')!, {
-  hash: true,
-  history: true,
-  controls: true,
-  progress: true,
-  slideNumber: 'c/t',
-  center: true,
-  transition: 'fade',
-  width: 1280,
-  height: 720,
-  margin: 0.045,
-  plugins: [Notes],
-});
+import { shellSlides } from './slides/shell';
+import { setupDeckUi } from './ui/deck-ui';
 
-deck.initialize();
+const revealElement = document.querySelector<HTMLElement>('.reveal');
+const slidesElement = document.querySelector<HTMLElement>('.slides');
+
+if (!revealElement || !slidesElement) {
+  throw new Error('Reveal.js root elements are missing from index.html');
+}
+
+slidesElement.innerHTML = shellSlides.join('\n');
 
 document.querySelectorAll<HTMLElement>('[data-katex]').forEach((node) => {
   katex.render(node.dataset.katex ?? '', node, {
@@ -34,3 +31,21 @@ document.querySelectorAll<HTMLElement>('[data-katex]').forEach((node) => {
     output: 'html',
   });
 });
+
+const deck = new Reveal(revealElement, {
+  hash: true,
+  history: true,
+  controls: true,
+  progress: true,
+  slideNumber: 'c/t',
+  center: false,
+  transition: 'fade',
+  backgroundTransition: 'fade',
+  width: 1280,
+  height: 720,
+  margin: 0.045,
+  plugins: [Notes],
+});
+
+setupDeckUi(deck);
+void deck.initialize();

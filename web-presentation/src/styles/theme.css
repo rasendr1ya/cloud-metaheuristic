@@ -20,6 +20,9 @@
   --red-soft: #fee4e2;
   --green: #067647;
   --green-soft: #dcfae6;
+  --backdrop: rgb(245 247 250 / 82%);
+  --overlay: rgb(16 24 40 / 42%);
+  --shadow-lg: 0 24px 64px rgb(16 24 40 / 16%);
 
   --r-background-color: var(--bg);
   --r-main-color: var(--ink);
@@ -60,6 +63,9 @@ html[data-theme='dark'] {
   --red-soft: #3b1512;
   --green: #75e0a7;
   --green-soft: #0d2f1d;
+  --backdrop: rgb(11 18 32 / 82%);
+  --overlay: rgb(2 6 12 / 62%);
+  --shadow-lg: 0 24px 64px rgb(0 0 0 / 42%);
 
   --r-background-color: var(--bg);
   --r-main-color: var(--ink);
@@ -74,8 +80,10 @@ html[data-theme='dark'] {
 }
 
 html,
-body {
+body,
+.reveal-viewport {
   background: var(--bg);
+  transition: background-color 180ms ease;
 }
 
 body {
