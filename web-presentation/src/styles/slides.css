@@ -1,0 +1,160 @@
+.reveal .slides section {
+  box-sizing: border-box;
+  padding: 54px 72px;
+}
+
+.eyebrow {
+  margin: 0 0 0.9em;
+  color: var(--muted-strong);
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-size: 0.52em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.28em 0.7em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-size: 0.46em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge--cyan {
+  border-color: color-mix(in srgb, var(--cyan) 32%, var(--line));
+  background: var(--cyan-soft);
+  color: var(--cyan-strong);
+}
+
+.badge--amber {
+  border-color: color-mix(in srgb, var(--amber) 32%, var(--line));
+  background: var(--amber-soft);
+  color: var(--amber-strong);
+}
+
+.title-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.title-slide__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 78% 42%, black 0%, transparent 68%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.title-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  background: linear-gradient(to bottom, var(--cyan), var(--amber));
+}
+
+.title-slide > * {
+  position: relative;
+  z-index: 1;
+}
+
+.title-slide h1 {
+  max-width: 12.5em;
+  margin-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.02;
+}
+
+.title-slide__amp {
+  color: var(--amber);
+  font-weight: 400;
+}
+
+.title-slide__subtitle {
+  max-width: 24em;
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: 0.72em;
+  line-height: 1.5;
+}
+
+.title-slide__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2.1em;
+}
+
+.title-slide__course {
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-size: 0.46em;
+  letter-spacing: 0.05em;
+}
+
+.slide-hint {
+  margin-top: 2.4em;
+  color: var(--muted);
+  font-size: 0.5em;
+}
+
+.stack-check {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stack-check > p {
+  max-width: 27em;
+  color: var(--muted-strong);
+  font-size: 0.68em;
+}
+
+.formula-card {
+  margin-top: 1.4em;
+  padding: 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 4%);
+}
+
+.formula-card__label {
+  margin: 0 0 0.65em;
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-size: 0.46em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.formula-card__body {
+  overflow-x: auto;
+  color: var(--ink);
+  font-size: 0.78em;
+}
+
+.formula-card__source {
+  margin: 0.8em 0 0;
+  color: var(--muted);
+  font-size: 0.46em;
+}
