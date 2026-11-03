@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'web-presentation/**'
+      - '.github/workflows/github-pages.yml'
   workflow_dispatch:
 
 permissions:
