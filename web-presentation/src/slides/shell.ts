@@ -1,5 +1,6 @@
 import { renderShortcutGrid } from '../data/shortcuts';
 import { contentSlide, sectionDivider } from '../lib/slide';
+import { contextSlides } from './context';
 
 const titleSlide = `
   <section
@@ -63,7 +64,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Lima perilaku, rumus, pemetaan ke VM, dan hasil paper.',
     meta: 'Algoritma 1',
     target: 'section-da',
-    href: '#/3',
+    href: '#/6',
     accent: 'cyan',
   },
   {
@@ -72,7 +73,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Global/local search, prioritas task, fitness, dan hasil paper.',
     meta: 'Algoritma 2',
     target: 'section-dbo',
-    href: '#/4',
+    href: '#/7',
     accent: 'amber',
   },
   {
@@ -81,7 +82,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Perbandingan DA vs DBO, analisis kritis, rencana simulator.',
     meta: 'Diskusi',
     target: 'section-synthesis',
-    href: '#/5',
+    href: '#/8',
     accent: 'neutral',
   },
   {
@@ -90,7 +91,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
     target: 'section-closing',
-    href: '#/6',
+    href: '#/9',
     accent: 'neutral',
     wide: true,
   },
@@ -142,7 +143,13 @@ const contextDivider = sectionDivider({
   title: 'Konteks & masalah',
   lede:
     'Mengapa penjadwalan task di cloud sulit, dan mengapa metaheuristik masuk akal untuk masalah ini.',
-  topics: ['Cloud task scheduling', 'NP-hard', 'Heuristic vs metaheuristik', 'Metrik & batasan'],
+  topics: [
+    'Cloud task scheduling',
+    'NP-hard',
+    'Heuristic vs metaheuristik',
+    'Metrik & batasan',
+    'DA vs DBO',
+  ],
   accent: 'cyan',
   notes:
     'Bagian ini membangun kosakata bersama: task, VM, makespan, load balance. ' +
@@ -236,6 +243,7 @@ export const shellSlides: string[] = [
   titleSlide,
   mapSlide,
   contextDivider,
+  ...contextSlides,
   daDivider,
   dboDivider,
   synthesisDivider,

@@ -39,6 +39,9 @@ const accentClass = (accent: Accent | undefined): string =>
 export const renderNotes = (notes?: string): string =>
   notes ? `<aside class="notes">${notes}</aside>` : '';
 
+export const cite = (label: string, title?: string): string =>
+  `<span class="cite"${title ? ` title="${escapeHtml(title)}"` : ''}>${escapeHtml(label)}</span>`;
+
 export const contentSlide = (options: ContentSlideOptions): string => {
   const label = options.sectionLabel ?? options.section;
 

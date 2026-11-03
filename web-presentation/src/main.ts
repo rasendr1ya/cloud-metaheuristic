@@ -10,6 +10,7 @@ import '@fontsource-variable/jetbrains-mono';
 
 import './styles/theme.css';
 import './styles/slides.css';
+import './styles/context.css';
 import './styles/deck-ui.css';
 
 import { shellSlides } from './slides/shell';

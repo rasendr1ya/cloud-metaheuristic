@@ -43,12 +43,15 @@
 
 .reveal .slides > section.title-slide {
   position: relative;
-  display: flex !important;
   flex-direction: column;
   justify-content: center;
   height: var(--slide-height, 720px);
   min-height: var(--slide-height, 720px);
   overflow: hidden;
+}
+
+.reveal .slides > section.title-slide.present {
+  display: flex !important;
 }
 
 .title-slide__grid {
@@ -120,10 +123,13 @@
 }
 
 .reveal .slides > section.slide--content {
-  display: flex !important;
   flex-direction: column;
   height: var(--slide-height, 720px);
   min-height: var(--slide-height, 720px);
+}
+
+.reveal .slides > section.slide--content.present {
+  display: flex !important;
 }
 
 .slide__inner {
