@@ -3,6 +3,7 @@ import { contentSlide, sectionDivider } from '../lib/slide';
 import { contextSlides } from './context';
 import { daSlides } from './da';
 import { dboSlides } from './dbo';
+import { synthesisSlides } from './synthesis';
 
 const titleSlide = `
   <section
@@ -81,9 +82,9 @@ const agendaItems: AgendaItem[] = [
   {
     number: '04',
     title: 'Sintesis',
-    description: 'Perbandingan DA vs DBO, analisis kritis, rencana simulator.',
+    description: 'Perbandingan DA vs DBO, kritik paper, dan rencana simulator.',
     meta: 'Diskusi',
-    target: 'section-synthesis',
+    target: 'synthesis-compare',
     href: '#/20',
     accent: 'neutral',
   },
@@ -92,8 +93,8 @@ const agendaItems: AgendaItem[] = [
     title: 'Referensi & penutup',
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
-    target: 'section-closing',
-    href: '#/21',
+    target: 'synthesis-conclusion',
+    href: '#/23',
     accent: 'neutral',
     wide: true,
   },
@@ -187,34 +188,6 @@ const dboDivider = sectionDivider({
     'bobot perilaku dan radius tetangga.',
 });
 
-const synthesisDivider = sectionDivider({
-  id: 'section-synthesis',
-  number: '04',
-  section: 'Sintesis',
-  title: 'Perbandingan & analisis kritis',
-  lede:
-    'Membandingkan karakter pencarian, kompleksitas, dan kualitas bukti dari kedua paper.',
-  topics: ['DA vs DBO', 'Exploration vs exploitation', 'Kejanggalan paper', 'Rencana simulator'],
-  accent: 'neutral',
-  notes:
-    'Bagian ini bukan memilih pemenang. Fokusnya: kecocokan algoritma dengan ' +
-    'jenis masalah dan kualitas bukti eksperimen di masing-masing paper.',
-});
-
-const closingDivider = sectionDivider({
-  id: 'section-closing',
-  number: '05',
-  section: 'Referensi & penutup',
-  title: 'Referensi & penutup',
-  lede:
-    'Kesimpulan, daftar sumber, dan catatan angka mana yang sudah diverifikasi.',
-  topics: ['Kesimpulan', 'Referensi', 'Catatan verifikasi'],
-  accent: 'neutral',
-  notes:
-    'Tutup dengan tiga takeaway. Buka appendix bila ada pertanyaan tentang ' +
-    'rumus lengkap, glosarium, atau sumber angka.',
-});
-
 const presenterGuide = contentSlide({
   id: 'presenter-guide',
   section: 'Panduan',
@@ -250,7 +223,6 @@ export const shellSlides: string[] = [
   ...daSlides,
   dboDivider,
   ...dboSlides,
-  synthesisDivider,
-  closingDivider,
+  ...synthesisSlides,
   presenterGuide,
 ];

@@ -13,6 +13,7 @@ import './styles/slides.css';
 import './styles/context.css';
 import './styles/da.css';
 import './styles/dbo.css';
+import './styles/synthesis.css';
 import './styles/deck-ui.css';
 
 import { shellSlides } from './slides/shell';
