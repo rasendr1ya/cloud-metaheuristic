@@ -1,6 +1,7 @@
 import { renderShortcutGrid } from '../data/shortcuts';
 import { contentSlide, sectionDivider } from '../lib/slide';
 import { contextSlides } from './context';
+import { daSlides } from './da';
 
 const titleSlide = `
   <section
@@ -73,7 +74,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Global/local search, prioritas task, fitness, dan hasil paper.',
     meta: 'Algoritma 2',
     target: 'section-dbo',
-    href: '#/7',
+    href: '#/13',
     accent: 'amber',
   },
   {
@@ -82,7 +83,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Perbandingan DA vs DBO, analisis kritis, rencana simulator.',
     meta: 'Diskusi',
     target: 'section-synthesis',
-    href: '#/8',
+    href: '#/14',
     accent: 'neutral',
   },
   {
@@ -91,7 +92,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
     target: 'section-closing',
-    href: '#/9',
+    href: '#/15',
     accent: 'neutral',
     wide: true,
   },
@@ -163,7 +164,7 @@ const daDivider = sectionDivider({
   title: 'Dragonfly Algorithm',
   lede:
     'Kawanan capung sebagai model pencarian: lima perilaku, vektor langkah, dan pemetaan ke VM.',
-  topics: ['Inspirasi biologis', 'Lima perilaku', 'Rumus & Lévy flight', 'Pemetaan ke VM', 'Hasil paper'],
+  topics: ['Inspirasi biologis', 'Lima perilaku', 'Rumus & Lévy flight', 'Pemetaan ke VM', 'Flowchart', 'Hasil paper'],
   accent: 'cyan',
   notes:
     'Transisi ke algoritma pertama. Ingatkan bahwa paper DA memakai istilah ' +
@@ -245,6 +246,7 @@ export const shellSlides: string[] = [
   contextDivider,
   ...contextSlides,
   daDivider,
+  ...daSlides,
   dboDivider,
   synthesisDivider,
   closingDivider,
