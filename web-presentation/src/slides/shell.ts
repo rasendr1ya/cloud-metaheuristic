@@ -2,6 +2,7 @@ import { renderShortcutGrid } from '../data/shortcuts';
 import { contentSlide, sectionDivider } from '../lib/slide';
 import { contextSlides } from './context';
 import { daSlides } from './da';
+import { dboSlides } from './dbo';
 
 const titleSlide = `
   <section
@@ -83,7 +84,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Perbandingan DA vs DBO, analisis kritis, rencana simulator.',
     meta: 'Diskusi',
     target: 'section-synthesis',
-    href: '#/14',
+    href: '#/20',
     accent: 'neutral',
   },
   {
@@ -92,7 +93,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
     target: 'section-closing',
-    href: '#/15',
+    href: '#/21',
     accent: 'neutral',
     wide: true,
   },
@@ -178,7 +179,7 @@ const dboDivider = sectionDivider({
   title: 'Dung Beetle Optimization',
   lede:
     'Lima perilaku kumbang kotoran yang membagi pencarian menjadi eksplorasi global dan eksploitasi lokal.',
-  topics: ['Lima perilaku', 'Global vs local search', 'Model sistem', 'Prioritas & fitness', 'Hasil paper'],
+  topics: ['Lima perilaku', 'Global vs local search', 'Model sistem', 'Prioritas, SLA & fitness', 'Flowchart', 'Hasil paper'],
   accent: 'amber',
   notes:
     'Transisi ke algoritma kedua. Kontras utama: DBO punya pembagian peran ' +
@@ -248,6 +249,7 @@ export const shellSlides: string[] = [
   daDivider,
   ...daSlides,
   dboDivider,
+  ...dboSlides,
   synthesisDivider,
   closingDivider,
   presenterGuide,

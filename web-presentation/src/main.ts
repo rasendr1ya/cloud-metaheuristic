@@ -12,10 +12,12 @@ import './styles/theme.css';
 import './styles/slides.css';
 import './styles/context.css';
 import './styles/da.css';
+import './styles/dbo.css';
 import './styles/deck-ui.css';
 
 import { shellSlides } from './slides/shell';
 import { setupDeckUi } from './ui/deck-ui';
+import { setupTabs } from './ui/tabs';
 
 const revealElement = document.querySelector<HTMLElement>('.reveal');
 const slidesElement = document.querySelector<HTMLElement>('.slides');
@@ -49,5 +51,6 @@ const deck = new Reveal(revealElement, {
   plugins: [Notes],
 });
 
+setupTabs();
 setupDeckUi(deck);
 void deck.initialize();
