@@ -76,7 +76,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Global/local search, prioritas task, fitness, dan hasil paper.',
     meta: 'Algoritma 2',
     target: 'section-dbo',
-    href: '#/13',
+    href: '#/14',
     accent: 'amber',
   },
   {
@@ -85,7 +85,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Perbandingan DA vs DBO, kritik paper, dan rencana simulator.',
     meta: 'Diskusi',
     target: 'synthesis-compare',
-    href: '#/20',
+    href: '#/22',
     accent: 'neutral',
   },
   {
@@ -94,7 +94,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
     target: 'synthesis-conclusion',
-    href: '#/23',
+    href: '#/25',
     accent: 'neutral',
     wide: true,
   },

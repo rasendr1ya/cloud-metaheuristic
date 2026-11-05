@@ -1,4 +1,6 @@
+import { daChartData } from '../data/da';
 import { cite, contentSlide } from '../lib/slide';
+import { paperChartMarkup } from '../widgets/paper-chart-markup';
 
 type FormulaSource = 'paper' | 'mirjalili';
 
@@ -450,6 +452,37 @@ const flowSlide = contentSlide({
     'interaktif penuh akan menambahkan panel detail per langkah.',
 });
 
+const resultsSlide = contentSlide({
+  id: 'da-results',
+  section: 'Dragonfly Algorithm',
+  className: 'slide--da slide--da-results',
+  kicker: 'Dragonfly Algorithm · 07',
+  title: 'Hasil paper DA: angka tabel dan catatannya',
+  lede:
+    'Grafik mengikuti Tabel 1–3 paper. Pilih metrik dan jumlah VM; nilai ditampilkan tanpa interpolasi.',
+  body: `
+    ${paperChartMarkup(daChartData)}
+
+    <div class="paper-caveat paper-caveat--da">
+      <strong>Catatan kejanggalan DA.</strong>
+      <ul>
+        <li>Tabel 1: kolom task 10/20/40 identik (<strong>0.27 / 0.5 / 0.31</strong>) di semua jumlah VM.</li>
+        <li>Hasil 500 task lebih kecil dari 200 task: VMs 5 <strong>1.59 → 1.4</strong>; VMs 20 <strong>1.15 → 0.96</strong>; VMs 40 <strong>0.94 → 0.75</strong>.</li>
+        <li>Satuan execution time tidak konsisten: teks “about 0.3 milliseconds”, tabel <strong>0.27–2.07</strong>, figur berlabel <strong>mS</strong>.</li>
+      </ul>
+    </div>
+  `,
+  footer: `
+    <span>Sumber: ${cite('Amini et al. 2018', 'Tabel 1–3')}.</span>
+    <span>Tabel 4 ringkasan tidak dipakai di grafik; fokus pada Tabel 1–3.</span>
+  `,
+  notes:
+    'Buka dengan peringatan: grafik Tabel 1 tidak boleh dibaca sebagai hasil ' +
+    'wajar tanpa catatan. Tunjukkan kolom 10/20/40 yang identik, hasil 500 ' +
+    'task yang lebih rendah dari 200, dan satuan waktu yang tidak konsisten. ' +
+    'Grafik hanya memakai Tabel 1–3; Tabel 4 tidak ditampilkan.',
+});
+
 export const daSlides: string[] = [
   biologySlide,
   behaviorSlide,
@@ -457,4 +490,5 @@ export const daSlides: string[] = [
   levySlide,
   mappingSlide,
   flowSlide,
+  resultsSlide,
 ];

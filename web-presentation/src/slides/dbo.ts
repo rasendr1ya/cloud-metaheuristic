@@ -1,4 +1,6 @@
+import { dboChartData } from '../data/dbo';
 import { cite, contentSlide } from '../lib/slide';
+import { paperChartMarkup } from '../widgets/paper-chart-markup';
 
 type FormulaSource = 'paper' | 'xue';
 
@@ -705,6 +707,35 @@ const flowSlide = contentSlide({
     'Encoding dari ruang kontinu ke penugasan task ke VM tidak dijelaskan.',
 });
 
+const resultsSlide = contentSlide({
+  id: 'dbo-results',
+  section: 'Dung Beetle Optimization',
+  className: 'slide--dbo slide--dbo-results',
+  kicker: 'Dung Beetle Optimization · 07',
+  title: 'Hasil paper DBO: EASA-MORU vs pembanding',
+  lede:
+    'Grafik mengikuti Tabel 2–8. Pilih metrik dan jumlah request; EASA-MORU adalah nama metode DBO di paper.',
+  body: `
+    ${paperChartMarkup(dboChartData)}
+
+    <div class="paper-caveat">
+      <strong>Batas data.</strong>
+      Semua sel yang ditampilkan tersedia di tabel/teks paper; tidak ada interpolasi.
+      Tabel PLOS berupa gambar, jadi angka dicek ke tabel dan teks yang terbaca.
+      CT EASA-MORU tidak monoton (2634 ms → 1090 ms); nilai ditampilkan apa adanya.
+    </div>
+  `,
+  footer: `
+    <span>Sumber: ${cite('Karim et al. 2024', 'Tabel 2–8')}.</span>
+    <span>EASA-MORU = metode DBO di paper; enam pembanding sesuai paper.</span>
+  `,
+  notes:
+    'Tegaskan bahwa EASA-MORU adalah nama metode DBO di paper ini. Pilih ' +
+    'metrik dan jumlah request; semua pembanding berasal dari tabel yang sama. ' +
+    'Tidak ada angka yang diinterpolasi. CT EASA-MORU memang tidak monoton; ' +
+    'jangan memperbaikinya secara visual.',
+});
+
 export const dboSlides: string[] = [
   behaviorSlide,
   globalSlide,
@@ -712,4 +743,5 @@ export const dboSlides: string[] = [
   systemSlide,
   prioritySlide,
   flowSlide,
+  resultsSlide,
 ];

@@ -14,10 +14,12 @@ import './styles/context.css';
 import './styles/da.css';
 import './styles/dbo.css';
 import './styles/synthesis.css';
+import './styles/paper-charts.css';
 import './styles/deck-ui.css';
 
 import { shellSlides } from './slides/shell';
 import { setupDeckUi } from './ui/deck-ui';
+import { setupPaperCharts } from './widgets/paper-charts';
 import { setupTabs } from './ui/tabs';
 
 const revealElement = document.querySelector<HTMLElement>('.reveal');
@@ -54,4 +56,5 @@ const deck = new Reveal(revealElement, {
 
 setupTabs();
 setupDeckUi(deck);
+setupPaperCharts(deck);
 void deck.initialize();
