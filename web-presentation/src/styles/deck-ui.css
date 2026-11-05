@@ -106,6 +106,102 @@
   font-weight: 600;
 }
 
+.reveal .controls {
+  right: 22px;
+  bottom: 16px;
+}
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-right {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  bottom: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
+  color: var(--ink-soft);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.reveal .controls .navigate-left {
+  right: 48px;
+}
+
+.reveal .controls .navigate-right {
+  right: 0;
+}
+
+.reveal .controls .navigate-left.enabled,
+.reveal .controls .navigate-right.enabled {
+  opacity: 1;
+}
+
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-right.enabled:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  opacity: 1;
+}
+
+.reveal .controls .navigate-left:focus-visible,
+.reveal .controls .navigate-right:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.reveal .controls .controls-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 15px;
+  height: 18px;
+  margin: 0;
+  background: currentColor;
+  clip-path: polygon(0 50%, 42% 0, 42% 34%, 100% 34%, 100% 66%, 42% 66%, 42% 100%);
+  transform: translate(-50%, -50%);
+}
+
+.reveal .controls .controls-arrow::before,
+.reveal .controls .controls-arrow::after {
+  display: none;
+}
+
+.reveal .controls .navigate-left .controls-arrow {
+  transform: translate(-50%, -50%);
+}
+
+.reveal .controls .navigate-right .controls-arrow {
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
+.reveal .slide-number {
+  right: auto;
+  bottom: 16px;
+  left: 22px;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
+  color: var(--muted-strong);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
 .icon-button--theme .icon-sun {
   display: none;
 }

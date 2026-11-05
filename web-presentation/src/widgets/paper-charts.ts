@@ -96,12 +96,12 @@ const unitSuffix = (unit: string): string =>
 
 const tickFont = (colors: ThemeColors) => ({
   family: colors.fontFamily,
-  size: 10,
+  size: 12,
 });
 
 const titleFont = (colors: ThemeColors) => ({
   family: colors.fontFamily,
-  size: 10,
+  size: 12,
   weight: 500 as const,
 });
 
@@ -159,7 +159,7 @@ const buildLineConfig = (
           boxWidth: 9,
           boxHeight: 9,
           usePointStyle: true,
-          font: { family: colors.fontFamily, size: 10 },
+          font: { family: colors.fontFamily, size: 11 },
         },
       },
       tooltip: {

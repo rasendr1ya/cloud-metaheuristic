@@ -371,14 +371,8 @@ const systemSlide = contentSlide({
   kicker: 'Dung Beetle Optimization · 04',
   title: 'Model sistem cloud di paper',
   lede:
-    'Sebelum DBO dipakai, paper mendefinisikan eksekusi task, beban VM/host, dan kapasitas VM sebagai dasar penjadwalan.',
+    'Model sistem paper; encoding task→VM tidak dirinci penulis.',
   body: `
-    <div class="dbo-interpretation">
-      <strong>Interpretasi paper.</strong>
-      Model sistem ini menjelaskan ET, beban, dan kapasitas. Encoding
-      task→VM serta pemetaan posisi kontinu ke VM tidak dirinci penulis.
-    </div>
-
     <div class="dbo-system-grid">
       <div class="dbo-system-left">
         <div class="dbo-cloud-chain" aria-label="Hierarki sumber daya cloud">
@@ -607,7 +601,7 @@ const flowSlide = contentSlide({
   kicker: 'Dung Beetle Optimization · 06',
   title: 'Flowchart DBO dan beda dengan paper',
   lede:
-    'Alur Algorithm 1 sederhana, tetapi tidak memuat partisi subpopulasi dan lima persamaan perilaku DBO asli.',
+    'Alur Algorithm 1 sederhana; detail subpopulasi dan lima perilaku tidak dimuat.',
   body: `
     <div class="dbo-flow-layout">
       <ol class="dbo-flow-list">
@@ -714,7 +708,7 @@ const resultsSlide = contentSlide({
   kicker: 'Dung Beetle Optimization · 07',
   title: 'Hasil paper DBO: EASA-MORU vs pembanding',
   lede:
-    'Grafik mengikuti Tabel 2–8. Pilih metrik dan jumlah request; EASA-MORU adalah nama metode DBO di paper.',
+    'Grafik Tabel 2–8; pilih metrik dan request.',
   body: `
     ${paperChartMarkup(dboChartData)}
 

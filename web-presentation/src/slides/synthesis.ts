@@ -9,39 +9,29 @@ interface CompareRow {
 
 const compareRows: CompareRow[] = [
   {
-    label: 'Inspirasi',
-    da: 'Kawanan capung: static swarm untuk eksplorasi lokal, dynamic swarm untuk migrasi global.',
-    dbo: 'Lima perilaku kumbang: rolling, dancing, breeding, foraging, stealing.',
-  },
-  {
-    label: 'Struktur pencarian',
-    da: 'Step vector + position vector. Lima vektor perilaku berbobot, ditambah inertia; mirip PSO.',
-    dbo: 'Lima aturan update. Peran global: rolling/dancing. Peran lokal: breeding/foraging/stealing.',
+    label: 'Inspirasi & struktur',
+    da: 'Capung; static/dynamic swarm; step + position vector.',
+    dbo: 'Lima perilaku; rolling/dancing global, breeding/foraging/stealing lokal.',
   },
   {
     label: 'Encoding task→VM',
-    da: 'Tidak eksplisit. Posisi capung dipetakan ke VM sebagai interpretasi, bukan encoding formal.',
-    dbo: 'Tidak eksplisit. Pemetaan posisi kontinu ke penugasan task→VM tidak dirinci penulis.',
+    da: 'Tidak eksplisit; posisi dipetakan ke VM sebagai interpretasi.',
+    dbo: 'Tidak eksplisit; pemetaan posisi kontinu tidak dirinci.',
   },
   {
     label: 'Metrik & lingkungan',
-    da: 'Execution time, response time, migrated tasks, load balance. Implementasi MATLAB 2013a.',
-    dbo: 'WAITT, RESPT, LB, THRPT, RELE, RELY, CT. Implementasi Python 3.6.5.',
+    da: 'Execution, response, migration, load; MATLAB 2013a.',
+    dbo: 'WAITT, RESPT, LB, THRPT, RELE, RELY, CT; Python 3.6.5.',
   },
   {
-    label: 'Kelebihan',
-    da: 'Formulasi ringkas; perilaku adaptif; fokus pada load balancing dan response time.',
-    dbo: 'Eksplorasi/eksploitasi dipisah per peran; fitness multiobjektif: makespan, energi, SLA.',
-  },
-  {
-    label: 'Kekurangan',
-    da: 'Detail encoding, fitness, dan satuan eksekusi belum jelas; hasil tabel perlu dibaca hati-hati.',
-    dbo: 'Banyak aturan perilaku; computational time paling lambat di Tabel 8.',
+    label: 'Kelebihan & kekurangan',
+    da: 'Ringkas dan adaptif; encoding/fitness/satuan belum jelas.',
+    dbo: 'Eksplorasi/eksploitasi terpisah; aturan banyak, waktu paling lambat.',
   },
   {
     label: 'Kecocokan dataset',
-    da: 'Skenario paper: 10–500 task, 5–40 VM. Belum ada uji dataset nyata atau beban produksi.',
-    dbo: 'Skenario paper: 100–500 request. Belum ada uji dataset nyata atau beban produksi.',
+    da: '10–500 task, 5–40 VM; belum ada dataset nyata.',
+    dbo: '100–500 request; belum ada dataset nyata.',
   },
 ];
 
@@ -62,9 +52,9 @@ const comparisonSlide = contentSlide({
   section: 'Sintesis',
   className: 'slide--syn slide--syn-compare',
   kicker: 'Sintesis · 01',
-  title: 'DA vs DBO: beda cara mencari, bukan beda angka',
+  title: 'DA vs DBO: beda cara mencari',
   lede:
-    'Keduanya mencari penugasan task ke VM, tetapi memakai model pencarian, metrik, dan lingkungan eksperimen yang berbeda.',
+    'Model pencarian, metrik, dan lingkungan eksperimennya berbeda.',
   body: `
     <div class="syn-compare" role="table" aria-label="Perbandingan Dragonfly Algorithm dan Dung Beetle Optimization">
       <div class="syn-compare__head" role="row">
@@ -96,7 +86,7 @@ const critiqueSlide = contentSlide({
   section: 'Sintesis',
   className: 'slide--syn slide--syn-critique',
   kicker: 'Sintesis · 02',
-  title: 'Analisis kritis: apa yang benar-benar ditunjukkan paper',
+  title: 'Analisis kritis: bukti dan celah paper',
   lede:
     'Catatan ini soal keterbacaan bukti, bukan tuduhan. Badge membedakan fakta yang dicek langsung dari celah yang tidak dijelaskan paper.',
   body: `

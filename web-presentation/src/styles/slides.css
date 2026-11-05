@@ -1,15 +1,15 @@
 .reveal .slides section {
   box-sizing: border-box;
-  padding: 54px 72px;
+  padding: 46px 64px 54px;
 }
 
 .eyebrow {
   margin: 0 0 0.9em;
   color: var(--muted-strong);
   font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-  font-size: 0.52em;
+  font-size: var(--type-label);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -23,7 +23,7 @@
   background: var(--surface);
   color: var(--ink-soft);
   font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-  font-size: 0.46em;
+  font-size: var(--type-label);
   font-weight: 500;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -42,7 +42,6 @@
 }
 
 .reveal .slides > section.title-slide {
-  position: relative;
   flex-direction: column;
   justify-content: center;
   height: var(--slide-height, 720px);
@@ -84,7 +83,7 @@
 .title-slide h1 {
   max-width: 12.5em;
   margin-bottom: 0.3em;
-  font-size: 2.25em;
+  font-size: var(--type-h1);
   line-height: 1.02;
 }
 
@@ -97,7 +96,7 @@
   max-width: 24em;
   margin: 0;
   color: var(--muted-strong);
-  font-size: 0.72em;
+  font-size: var(--type-lede);
   line-height: 1.5;
 }
 
@@ -112,14 +111,14 @@
 .title-slide__course {
   color: var(--muted);
   font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-  font-size: 0.46em;
+  font-size: var(--type-label);
   letter-spacing: 0.05em;
 }
 
 .slide-hint {
   margin-top: 2.4em;
   color: var(--muted);
-  font-size: 0.5em;
+  font-size: var(--type-body-sm);
 }
 
 .reveal .slides > section.slide--content {
@@ -129,6 +128,10 @@
 }
 
 .reveal .slides > section.slide--content.present {
+  display: flex !important;
+}
+
+.reveal .slides > section.slide--section.present {
   display: flex !important;
 }
 
@@ -143,20 +146,20 @@
 }
 
 .slide__title {
-  margin-bottom: 0.3em;
-  font-size: 1.55em;
+  margin-bottom: 0.2em;
+  font-size: var(--type-h2);
 }
 
 .slide__lede {
-  max-width: 32em;
+  max-width: 100%;
   margin: 0;
   color: var(--muted-strong);
-  font-size: 0.62em;
+  font-size: var(--type-lede);
   line-height: 1.45;
 }
 
 .slide__body {
-  margin-top: 1.05em;
+  margin-top: 0.72em;
 }
 
 .slide__footer {
@@ -165,10 +168,10 @@
   justify-content: space-between;
   gap: 16px;
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: 8px;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.42em;
+  font-size: var(--type-label);
 }
 
 .slide__footer kbd {
@@ -208,10 +211,39 @@
   background: var(--card-accent);
 }
 
-.agenda-card:hover {
+.agenda-card:hover,
+.agenda-card:focus-visible {
   transform: translateY(-2px);
-  border-color: var(--card-accent);
-  background: var(--surface-2);
+  border-color: color-mix(in srgb, var(--card-accent) 45%, var(--line));
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in srgb, var(--card-accent) 7%, transparent),
+      transparent 48%
+    ),
+    var(--surface);
+  outline: none;
+  box-shadow:
+    inset 3px 0 0 var(--card-accent),
+    inset 0 0 0 1px color-mix(in srgb, var(--card-accent) 14%, transparent);
+}
+
+.agenda-card::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid var(--card-accent);
+  border-right: 1px solid var(--card-accent);
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.agenda-card:hover::after,
+.agenda-card:focus-visible::after {
+  opacity: 0.78;
 }
 
 .agenda-card--cyan {
@@ -296,7 +328,7 @@
 .section-divider__number {
   color: var(--accent, var(--line-strong));
   font-family: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
-  font-size: 5em;
+  font-size: var(--type-display);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.07em;
@@ -306,14 +338,14 @@
 
 .section-divider__copy h2 {
   margin-bottom: 0.3em;
-  font-size: 1.8em;
+  font-size: var(--type-section);
 }
 
 .section-divider__lede {
   max-width: 27em;
   margin: 0;
   color: var(--muted-strong);
-  font-size: 0.62em;
+  font-size: var(--type-lede);
   line-height: 1.45;
 }
 

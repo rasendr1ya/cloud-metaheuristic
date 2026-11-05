@@ -407,13 +407,14 @@
 }
 
 .dbo-tabs__button {
-  padding: 5px 11px;
+  position: relative;
+  padding: 6px 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 5px;
   background: var(--surface);
   color: var(--muted-strong);
   font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-  font-size: 0.38em;
+  font-size: var(--type-label);
   letter-spacing: 0.03em;
   cursor: pointer;
 }
@@ -424,9 +425,43 @@
 }
 
 .dbo-tabs__button.is-active {
-  border-color: color-mix(in srgb, var(--amber) 45%, var(--line));
-  background: var(--amber-soft);
-  color: var(--amber);
+  border-color: color-mix(in srgb, var(--amber) 48%, var(--line));
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--amber) 10%, transparent),
+      transparent 68%
+    ),
+    var(--surface);
+  box-shadow:
+    inset 3px 0 0 var(--amber),
+    inset 0 0 0 1px color-mix(in srgb, var(--amber) 16%, transparent);
+  color: var(--ink);
+}
+
+.dbo-tabs__button.is-active::before {
+  content: '';
+  position: absolute;
+  right: 9px;
+  bottom: 4px;
+  left: 9px;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--amber) 42%, transparent) 0 4px,
+    transparent 4px 7px
+  );
+}
+
+.dbo-tabs__button.is-active::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  background: var(--amber);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--amber) 16%, transparent);
 }
 
 .dbo-tabs__button:focus-visible {

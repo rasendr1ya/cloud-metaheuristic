@@ -35,14 +35,15 @@
 }
 
 .paper-chart__btn {
-  padding: 3px 8px;
+  position: relative;
+  padding: 5px 10px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 5px;
   background: var(--surface);
   color: var(--muted-strong);
   font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-  font-size: 0.35em;
-  line-height: 1.35;
+  font-size: var(--type-label);
+  line-height: 1.25;
   cursor: pointer;
   transition:
     border-color 160ms ease,
@@ -56,14 +57,48 @@
 }
 
 .paper-chart__btn[aria-pressed='true'] {
-  border-color: color-mix(in srgb, var(--paper-accent) 58%, var(--line));
-  background: color-mix(in srgb, var(--paper-accent) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--paper-accent) 48%, var(--line));
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--paper-accent) 10%, transparent),
+      transparent 68%
+    ),
+    var(--surface);
+  box-shadow:
+    inset 3px 0 0 var(--paper-accent),
+    inset 0 0 0 1px color-mix(in srgb, var(--paper-accent) 16%, transparent);
   color: var(--ink);
+}
+
+.paper-chart__btn[aria-pressed='true']::before {
+  content: '';
+  position: absolute;
+  right: 8px;
+  bottom: 4px;
+  left: 8px;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--paper-accent) 42%, transparent) 0 4px,
+    transparent 4px 7px
+  );
+}
+
+.paper-chart__btn[aria-pressed='true']::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  background: var(--paper-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--paper-accent) 16%, transparent);
 }
 
 .paper-chart__plot {
   position: relative;
-  height: 255px;
+  height: 220px;
   min-height: 0;
   padding: 8px 10px 4px;
   border: 1px solid var(--line);

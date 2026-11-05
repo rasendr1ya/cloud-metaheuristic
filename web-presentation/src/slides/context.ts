@@ -73,7 +73,7 @@ const metaheuristicsSlide = contentSlide({
   kicker: 'Konteks · 02',
   title: 'Mengapa metaheuristik?',
   lede:
-    'Menempatkan n task ke m VM punya m^n kemungkinan penugasan. Constraint membuat pencarian solusi optimal secara eksak cepat menjadi mahal.',
+    'Ruang solusi m^n membuat pencarian eksak mahal; metaheuristik menukar jaminan optimal dengan solusi layak.',
   body: `
     <div class="context-split">
       <article class="panel panel--cyan">
@@ -147,10 +147,6 @@ const metaheuristicsSlide = contentSlide({
       <p>Metaheuristik mengatur keseimbangan keduanya lewat iterasi dan populasi.</p>
     </div>
 
-    <div class="context-takeaway">
-      <strong>Implikasi</strong>
-      <span>Metaheuristik menukar jaminan optimal dengan solusi layak yang baik dalam anggaran iterasi.</span>
-    </div>
   `,
   footer: `
     <span>NP-hard: sifat umum penjadwalan pada mesin paralel.</span>
@@ -170,7 +166,7 @@ const algorithmOverviewSlide = contentSlide({
   kicker: 'Konteks · 03',
   title: 'DA dan DBO: dua strategi, satu tujuan',
   lede:
-    'Keduanya mencari penugasan task ke VM. Yang berbeda: model perilaku, cara menjaga eksplorasi, dan metrik yang ditekankan.',
+    'Keduanya mencari penugasan task ke VM, dengan model dan metrik berbeda.',
   body: `
     <div class="algo-compare">
       <article class="algo-card algo-card--cyan">
@@ -242,10 +238,6 @@ const algorithmOverviewSlide = contentSlide({
       Rasio subpopulasi DBO juga tidak ditetapkan paper.
     </div>
 
-    <div class="context-takeaway">
-      <strong>Alur</strong>
-      <span>Perilaku → rumus → pemetaan ke VM → evaluasi metrik. Detail tiap algoritma dibahas di bagian berikutnya.</span>
-    </div>
   `,
   footer: `
     <span>Sumber: ${cite('Amini et al. 2018')} · ${cite('Karim et al. 2024')}.</span>

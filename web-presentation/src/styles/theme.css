@@ -24,10 +24,21 @@
   --overlay: rgb(16 24 40 / 42%);
   --shadow-lg: 0 24px 64px rgb(16 24 40 / 16%);
 
+  --type-h1: 4.3rem;
+  --type-h2: 3.2rem;
+  --type-h3: 2rem;
+  --type-section: 3.55rem;
+  --type-display: 8.2rem;
+  --type-body: 1.35rem;
+  --type-body-sm: 1.18rem;
+  --type-lede: 1.55rem;
+  --type-label: 0.94rem;
+  --type-micro: 0.8rem;
+
   --r-background-color: var(--bg);
   --r-main-color: var(--ink);
   --r-main-font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --r-main-font-size: 30px;
+  --r-main-font-size: 32px;
   --r-heading-color: var(--ink);
   --r-heading-font: 'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui,
     sans-serif;
@@ -103,6 +114,10 @@ body {
   text-align: left;
 }
 
+.reveal .slides section {
+  font-size: var(--r-main-font-size);
+}
+
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -116,15 +131,15 @@ body {
 }
 
 .reveal h1 {
-  font-size: 2.1em;
+  font-size: var(--type-h1);
 }
 
 .reveal h2 {
-  font-size: 1.55em;
+  font-size: var(--type-h2);
 }
 
 .reveal h3 {
-  font-size: 1.12em;
+  font-size: var(--type-h3);
 }
 
 .reveal p,

@@ -194,11 +194,13 @@ const formulaSlide = contentSlide({
   kicker: 'Dragonfly Algorithm · 03',
   title: 'Rumus perilaku dan update posisi',
   lede:
-    'Semua formula perilaku digabung dengan bobot. Step vector menyimpan momentum, lalu position vector diperbarui.',
+    'Lima vektor digabung dengan bobot, lalu posisi diperbarui.',
   body: `
     <div class="formula-layout">
       <div class="formula-stack">
-        ${behaviorFormulas.map(formulaRow).join('')}
+        <div class="formula-grid">
+          ${behaviorFormulas.map(formulaRow).join('')}
+        </div>
         ${updateFormulas.map(formulaRow).join('')}
       </div>
 
@@ -459,7 +461,7 @@ const resultsSlide = contentSlide({
   kicker: 'Dragonfly Algorithm · 07',
   title: 'Hasil paper DA: angka tabel dan catatannya',
   lede:
-    'Grafik mengikuti Tabel 1–3 paper. Pilih metrik dan jumlah VM; nilai ditampilkan tanpa interpolasi.',
+    'Grafik Tabel 1–3; pilih metrik dan VM, tanpa interpolasi.',
   body: `
     ${paperChartMarkup(daChartData)}
 
