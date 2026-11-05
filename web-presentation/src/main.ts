@@ -21,6 +21,9 @@ import { shellSlides } from './slides/shell';
 import { setupDeckUi } from './ui/deck-ui';
 import { setupPaperCharts } from './widgets/paper-charts';
 import { setupTabs } from './ui/tabs';
+import { setupDaBiology } from './widgets/da-biology';
+import { setupSwarmLabDa } from './widgets/swarm-lab-da';
+import { setupSwarmLabDbo } from './widgets/swarm-lab-dbo';
 
 const revealElement = document.querySelector<HTMLElement>('.reveal');
 const slidesElement = document.querySelector<HTMLElement>('.slides');
@@ -37,6 +40,11 @@ document.querySelectorAll<HTMLElement>('[data-katex]').forEach((node) => {
     throwOnError: false,
     output: 'html',
   });
+});
+
+document.querySelectorAll<HTMLElement>('.slide--dbo .dbo-key').forEach((key) => {
+  const reveal = document.createElement('div'); reveal.className = 'symbol-reveal'; reveal.textContent = 'Klik simbol untuk melihat arti.'; key.prepend(reveal);
+  key.querySelectorAll<HTMLElement>('dt').forEach((term) => { const button = document.createElement('button'); button.type = 'button'; button.textContent = term.textContent ?? ''; term.replaceChildren(button); button.addEventListener('click', () => { reveal.textContent = `${button.textContent}: ${term.parentElement?.querySelector('dd')?.textContent ?? ''}`; }); });
 });
 
 const deck = new Reveal(revealElement, {
@@ -57,4 +65,19 @@ const deck = new Reveal(revealElement, {
 setupTabs();
 setupDeckUi(deck);
 setupPaperCharts(deck);
+setupDaBiology(deck);
+setupSwarmLabDa(deck);
+setupSwarmLabDbo(deck);
+const symbolMeanings: Record<string, string> = {
+  X_i: 'posisi capung i dalam ruang pencarian.', X_j: 'posisi tetangga j.', V_j: 'vektor kecepatan tetangga j.',
+  N: 'jumlah tetangga dalam radius.', 'X+': 'food: kandidat terbaik.', 'X-': 'enemy: kandidat terburuk.',
+  weights: 'bobot separation, alignment, cohesion, food, dan enemy.', w: 'bobot inertia pada step vector.',
+  delta: 'perubahan posisi pada iterasi t.', t: 'indeks iterasi.',
+};
+document.querySelectorAll<HTMLButtonElement>('[data-symbol]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const panel = button.closest<HTMLElement>('[data-slide-id="da-formulas"]')?.querySelector<HTMLElement>('[data-symbol-reveal]');
+    if (panel) panel.textContent = `${button.textContent}: ${symbolMeanings[button.dataset.symbol ?? ''] ?? ''}`;
+  });
+});
 void deck.initialize();

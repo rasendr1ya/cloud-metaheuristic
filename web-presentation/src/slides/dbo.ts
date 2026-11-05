@@ -730,6 +730,15 @@ const resultsSlide = contentSlide({
     'jangan memperbaikinya secara visual.',
 });
 
+const swarmLabDboSlide = contentSlide({
+  id: 'swarm-lab-dbo', section: 'Dung Beetle Optimization', className: 'slide--dbo slide--swarm-lab',
+  kicker: 'Dung Beetle Optimization · SwarmLab', title: 'SwarmLab DBO: lima fase gerak',
+  lede: 'Amati bagaimana rolling, dancing, breeding, foraging, dan stealing membagi ruang pencarian.',
+  body: `<div class="lab-layout"><div class="lab-canvas-wrap"><canvas class="lab-canvas lab-canvas--dbo" data-swarm-lab-dbo aria-label="SwarmLab DBO: ilustrasi gerak populasi"></canvas><span class="lab-badge">Ilustrasi model gerak, bukan hasil paper.</span></div><aside class="lab-controls" data-lab-dbo-controls><div class="lab-actions"><button type="button" data-lab-action="toggle">Pause</button><button type="button" data-lab-action="step">Step</button><button type="button" data-lab-action="reset">Reset</button></div><label>k <input data-lab-weight="k" type="range" min="0" max="0.2" step="0.01" value="0.1" /></label><label>b <input data-lab-weight="b" type="range" min="0" max="1" step="0.01" value="0.3" /></label><label>θ <input data-lab-weight="theta" type="range" min="0" max="3.14" step="0.01" value="1.57" /></label><label>S <input data-lab-weight="S" type="range" min="0" max="1" step="0.01" value="0.5" /></label><p class="lab-selected" data-lab-phase>Fase aktif: rolling</p></aside></div>`,
+  footer: `<span>Sumber gerak: ${cite('Xue & Shen 2022')}.</span><span>Fase aktif ditandai di panel kontrol.</span>`,
+  notes: 'Tekankan bahwa pembagian fase dan nilai slider adalah visualisasi; paper tugas tidak menetapkan rasio subpopulasi.',
+});
+
 export const dboSlides: string[] = [
   behaviorSlide,
   globalSlide,
@@ -737,5 +746,6 @@ export const dboSlides: string[] = [
   systemSlide,
   prioritySlide,
   flowSlide,
+  swarmLabDboSlide,
   resultsSlide,
 ];

@@ -58,7 +58,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Cloud task scheduling, NP-hard, dan posisi metaheuristik.',
     meta: 'Fondasi',
     target: 'section-context',
-    href: '#/2',
+    href: '#/3',
     accent: 'cyan',
   },
   {
@@ -67,7 +67,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Lima perilaku, rumus, pemetaan ke VM, dan hasil paper.',
     meta: 'Algoritma 1',
     target: 'section-da',
-    href: '#/6',
+    href: '#/7',
     accent: 'cyan',
   },
   {
@@ -76,7 +76,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Global/local search, prioritas task, fitness, dan hasil paper.',
     meta: 'Algoritma 2',
     target: 'section-dbo',
-    href: '#/14',
+    href: '#/16',
     accent: 'amber',
   },
   {
@@ -85,7 +85,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Perbandingan DA vs DBO, kritik paper, dan rencana simulator.',
     meta: 'Diskusi',
     target: 'synthesis-compare',
-    href: '#/22',
+    href: '#/25',
     accent: 'neutral',
   },
   {
@@ -94,7 +94,7 @@ const agendaItems: AgendaItem[] = [
     description: 'Kesimpulan, daftar sumber, dan catatan verifikasi angka.',
     meta: 'Penutup',
     target: 'synthesis-conclusion',
-    href: '#/25',
+    href: '#/28',
     accent: 'neutral',
     wide: true,
   },

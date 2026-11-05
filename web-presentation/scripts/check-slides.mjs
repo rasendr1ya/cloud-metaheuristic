@@ -58,8 +58,8 @@ try {
     }
   });
 
-  if (shellSlides.length !== 28) {
-    errors.push(`expected 28 slides, found ${shellSlides.length}`);
+  if (shellSlides.length !== 30) {
+    errors.push(`expected 30 slides, found ${shellSlides.length}`);
   }
 
   if (errors.length > 0) {

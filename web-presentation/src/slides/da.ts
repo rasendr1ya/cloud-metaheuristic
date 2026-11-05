@@ -82,15 +82,7 @@ const biologySlide = contentSlide({
           <span class="biology-panel__label">Static swarm</span>
           <span class="biology-panel__tag">eksplorasi lokal</span>
         </header>
-        <div class="swarm-map swarm-map--static" aria-hidden="true">
-          <span class="swarm-map__food">food</span>
-          <span class="swarm-dot" style="left: 18%; top: 58%"></span>
-          <span class="swarm-dot" style="left: 30%; top: 36%"></span>
-          <span class="swarm-dot" style="left: 42%; top: 66%"></span>
-          <span class="swarm-dot" style="left: 54%; top: 42%"></span>
-          <span class="swarm-dot" style="left: 66%; top: 61%"></span>
-          <span class="swarm-dot" style="left: 44%; top: 48%"></span>
-        </div>
+        <canvas class="swarm-map swarm-map--static" data-swarm-biology="static" aria-label="Ilustrasi gerak static swarm"></canvas>
         <p>Kelompok kecil bergerak lokal di sekitar sumber makanan.</p>
       </article>
 
@@ -99,19 +91,16 @@ const biologySlide = contentSlide({
           <span class="biology-panel__label">Dynamic swarm</span>
           <span class="biology-panel__tag">migrasi global</span>
         </header>
-        <div class="swarm-map swarm-map--dynamic" aria-hidden="true">
-          <span class="swarm-map__enemy">enemy</span>
-          <span class="swarm-dot" style="left: 12%; top: 24%"></span>
-          <span class="swarm-dot" style="left: 24%; top: 68%"></span>
-          <span class="swarm-dot" style="left: 34%; top: 18%"></span>
-          <span class="swarm-dot" style="left: 44%; top: 52%"></span>
-          <span class="swarm-dot" style="left: 56%; top: 28%"></span>
-          <span class="swarm-dot" style="left: 64%; top: 70%"></span>
-          <span class="swarm-dot" style="left: 76%; top: 38%"></span>
-          <span class="swarm-dot" style="left: 84%; top: 58%"></span>
-        </div>
+        <canvas class="swarm-map swarm-map--dynamic" data-swarm-biology="dynamic" aria-label="Ilustrasi gerak dynamic swarm"></canvas>
         <p>Kelompok besar menempuh jarak jauh untuk mencari area solusi baru.</p>
       </article>
+    </div>
+
+    <div class="swarm-controls" data-swarm-controls>
+      <button type="button" class="swarm-control" data-swarm-action="toggle">Pause</button>
+      <button type="button" class="swarm-control" data-swarm-action="reset">Reset</button>
+      <label class="swarm-radius">Radius tetangga <input data-swarm-radius type="range" min="0.12" max="0.42" step="0.01" value="0.24" /></label>
+      <span class="swarm-illustration-badge">Ilustrasi model gerak, bukan hasil paper.</span>
     </div>
 
     <div class="biology-note">
@@ -207,17 +196,18 @@ const formulaSlide = contentSlide({
       <aside class="formula-side">
         <div class="symbol-key">
           <p class="symbol-key__label">Glosarium simbol</p>
+          <div class="symbol-reveal" data-symbol-reveal aria-live="polite">Klik simbol untuk melihat arti.</div>
           <dl>
-            <div><dt>X_i</dt><dd>posisi capung i</dd></div>
-            <div><dt>X_j</dt><dd>posisi tetangga j</dd></div>
-            <div><dt>V_j</dt><dd>vektor kecepatan tetangga</dd></div>
-            <div><dt>N</dt><dd>jumlah tetangga</dd></div>
-            <div><dt>X⁺</dt><dd>food / kandidat terbaik</dd></div>
-            <div><dt>X⁻</dt><dd>enemy / kandidat terburuk</dd></div>
-            <div><dt>s,a,c,f,e</dt><dd>bobot lima perilaku</dd></div>
-            <div><dt>w</dt><dd>bobot inertia langkah</dd></div>
-            <div><dt>ΔX_t</dt><dd>step vector iterasi t</dd></div>
-            <div><dt>t</dt><dd>indeks iterasi</dd></div>
+            <div><dt><button type="button" data-symbol="X_i">X_i</button></dt><dd>posisi capung i</dd></div>
+            <div><dt><button type="button" data-symbol="X_j">X_j</button></dt><dd>posisi tetangga j</dd></div>
+            <div><dt><button type="button" data-symbol="V_j">V_j</button></dt><dd>vektor kecepatan tetangga</dd></div>
+            <div><dt><button type="button" data-symbol="N">N</button></dt><dd>jumlah tetangga</dd></div>
+            <div><dt><button type="button" data-symbol="X+">X⁺</button></dt><dd>food / kandidat terbaik</dd></div>
+            <div><dt><button type="button" data-symbol="X-">X⁻</button></dt><dd>enemy / kandidat terburuk</dd></div>
+            <div><dt><button type="button" data-symbol="weights">s,a,c,f,e</button></dt><dd>bobot lima perilaku</dd></div>
+            <div><dt><button type="button" data-symbol="w">w</button></dt><dd>bobot inertia langkah</dd></div>
+            <div><dt><button type="button" data-symbol="delta">ΔX_t</button></dt><dd>step vector iterasi t</dd></div>
+            <div><dt><button type="button" data-symbol="t">t</button></dt><dd>indeks iterasi</dd></div>
           </dl>
         </div>
 
@@ -485,6 +475,40 @@ const resultsSlide = contentSlide({
     'Grafik hanya memakai Tabel 1–3; Tabel 4 tidak ditampilkan.',
 });
 
+const swarmLabDaSlide = contentSlide({
+  id: 'swarm-lab-da',
+  section: 'Dragonfly Algorithm',
+  className: 'slide--da slide--swarm-lab',
+  kicker: 'Dragonfly Algorithm · SwarmLab',
+  title: 'SwarmLab DA: rasakan lima vektor gerak',
+  lede: 'Pilih node, ubah bobot perilaku, lalu amati bagaimana step vector mengubah gerak populasi.',
+  body: `
+    <div class="lab-layout">
+      <div class="lab-canvas-wrap">
+        <canvas class="lab-canvas" data-swarm-lab-da aria-label="SwarmLab DA: ilustrasi gerak populasi"></canvas>
+        <span class="lab-badge">Ilustrasi model gerak, bukan hasil paper.</span>
+      </div>
+      <aside class="lab-controls" data-lab-da-controls>
+        <div class="lab-actions">
+          <button type="button" data-lab-action="toggle">Pause</button>
+          <button type="button" data-lab-action="step">Step</button>
+          <button type="button" data-lab-action="reset">Reset</button>
+        </div>
+        <label>Separation <input data-lab-weight="s" type="range" min="0" max="1" step="0.01" value="0.1" /></label>
+        <label>Alignment <input data-lab-weight="a" type="range" min="0" max="1" step="0.01" value="0.1" /></label>
+        <label>Cohesion <input data-lab-weight="c" type="range" min="0" max="1" step="0.01" value="0.1" /></label>
+        <label>Food <input data-lab-weight="f" type="range" min="0" max="2" step="0.01" value="2" /></label>
+        <label>Enemy <input data-lab-weight="e" type="range" min="0" max="1" step="0.01" value="0.1" /></label>
+        <label>Inertia <input data-lab-weight="w" type="range" min="0" max="1" step="0.01" value="0.9" /></label>
+        <label>Radius tetangga <input data-lab-radius type="range" min="0.08" max="0.35" step="0.01" value="0.18" /></label>
+        <p class="lab-selected" data-lab-selected>Belum ada node dipilih.</p>
+      </aside>
+    </div>
+  `,
+  footer: `<span>Sumber model: ${cite('Mirjalili 2015')}.</span><span>Node terpilih menampilkan radius dan jumlah tetangga.</span>`,
+  notes: 'Biarkan audiens memilih node dan mengubah satu bobot. Tekankan bahwa ini ilustrasi gerak populasi, bukan simulator cloud atau reproduksi hasil paper.',
+});
+
 export const daSlides: string[] = [
   biologySlide,
   behaviorSlide,
@@ -492,5 +516,6 @@ export const daSlides: string[] = [
   levySlide,
   mappingSlide,
   flowSlide,
+  swarmLabDaSlide,
   resultsSlide,
 ];

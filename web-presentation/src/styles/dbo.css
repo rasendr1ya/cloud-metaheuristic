@@ -136,7 +136,13 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
 }
+
+.dbo-formula__head::marker { color: var(--amber); }
+.dbo-formula__math { padding-top: 5px; }
+.dbo-key dt button { padding: 0; border: 0; background: none; color: var(--amber-strong); font: inherit; cursor: pointer; }
+.dbo-key .symbol-reveal { margin: 5px 0 7px; padding: 5px 7px; border-left: 2px solid var(--amber); background: color-mix(in srgb, var(--amber) 7%, var(--surface)); color: var(--ink-soft); font-size: var(--type-micro); }
 
 .dbo-eq {
   padding: 2px 6px;
